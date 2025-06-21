@@ -209,7 +209,7 @@ while True:
                 print("Nehuma falha detectada.")
         else:
             print("Nenhum log retornado.")
-    elif choice == '1':
+    elif choice == '2':
         service_name = input("Digite o nome do serviço (ex: Spooler): ")
         status = verificar_status_servico(service_name)
         print(f"Status do serviço '{service_name}': {status}")
