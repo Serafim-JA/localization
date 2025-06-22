@@ -42,6 +42,9 @@ def consultar_logs_area_vpn(area, vpn):
         ]
         # Aqui iria a lógica real de consulta ao DB ou leitura de arquivos.
         return simulated_logs
+    except Exception as e:
+        logging.error(f"Erro ao consultar logs: {e}")
+        return []
 def identificar_falhas_em_logs(logs):
     """Analisa logs e identifica padrões de falha."""
     falhas_enconstradas = []
@@ -176,7 +179,7 @@ def main():
             else:
                 print("Nenhum log para analisar.")
         elif args.action == "verificar_servico" and args.service:
-            status = vericar_status_servico(args.service)
+            status = verificar_status_servico(args.service)
             print(f"Status do serviço '{args.service}': {status}")
         elif args.action == "reiniciar_servico" and args.service:
             if reiniciar_servico(args.service):
